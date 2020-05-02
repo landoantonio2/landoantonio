@@ -1,0 +1,982 @@
+<!doctype html>
+<html ⚡ lang="en">
+<head>
+    <meta charset="utf-8">
+    <style amp-boilerplate>
+      body{-webkit-animation:
+      -amp-start 8s steps(1,end) 0s 1 normal both;
+      -moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;
+      -ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;
+      animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes
+      -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes
+      -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes
+      -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes
+      -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes
+      -amp-start{from{visibility:hidden}to{visibility:visible}}
+    </style>
+    <noscript>
+      <style amp-boilerplate>
+        body{-webkit-animation:none;
+        -moz-animation:none;
+        -ms-animation:none;
+        animation:none}
+      </style>
+    </noscript>
+    <link rel="canonical" href="index.html">
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
+    <!-- We will be using the `amp-fit-text` component to fit captions to the available space. -->
+    <script async custom-element="amp-fit-text" src="https://cdn.ampproject.org/v0/amp-fit-text-0.1.js"></script>
+    <!-- Carousel previews can be implemented with `amp-selector` component. -->
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    <!-- We sync the carousel state using the `amp-bind` component. -->
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <!-- Import the `amp-form` extension. -->
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+    <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+    <script async custom-element="amp-live-list" src="https://cdn.ampproject.org/v0/amp-live-list-0.1.js"></script>
+
+	<meta name="description" content="Personal that deals mostly in design and fabrications of furnitures doors and cabinets for homes and office in Naga City, Camarines Sur, Philippines.">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="keywords" content="furnitures and cabinets designs in Naga City Camarines Sur Philippines, fabricators as per your demand and specifications, your satisfaction our pride, works guaranteed with warranty">
+	<meta name="no email collection" content="href='noemail.html'">
+    <meta name="robots" content="index">
+	<meta name="google-site-verification" content="awlGU7xz5V2eHS9tR-kOoMpE1MP5OBDaMhfgciGF6ds">
+	<meta name="google-signin-client_id" content="329094026325-c557p04d43pn0gogjc4km5ps3a7crsah.apps.googleusercontent.com">
+	<!-- Title -->
+	<title>Personal - Furnitures, Doors, Cabinets for Homes and Office</title>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <!-- GENERAL STYLES -->
+	<style amp-custom>
+        :root {
+      --space-1: .5rem;  /* 8px */
+      --space-2: 1rem;   /* 16px */
+    }:root {
+      --space-1: .5rem;  /* 8px */
+      --space-2: 1rem;   /* 16px */
+    }
+    #carousel-with-preview amp-img {
+      transition: opacity 1s ease-in-out;
+    }
+    .carousel-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-preview > * {
+      margin: var(--space-1);
+      padding: 0;
+    }
+    .carousel-preview [selected] {
+      opacity: 0.5;
+      outline: none;
+    }
+    .carousel-preview .amp-carousel-slide {
+      margin: var(--space-1);
+      padding: 0;
+    }
+    .carousel-preview button:active {
+      opacity: 0.5;
+    }
+    .carousel1, .carousel2 {
+      background: var(--color-bg-light);
+      margin: var(--space-2) 0;
+    }
+    .carousel1 .slide > amp-img > img{
+      object-fit: contain;
+    }
+    .carousel2 .slide > amp-img > img{
+      object-fit: contain;
+    }
+    .carousel2 .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: var(--space-1);
+      background: rgba(0, 0, 0, 0.6);
+      font-size: smaller;
+      max-height: 30%;
+    }
+    /* define some contants */
+    .collapsible-captions {
+      --caption-height: 32px;
+      --image-height: 300px;
+      --caption-padding: 1rem;
+      --button-size: 28px;
+      --caption-color: #f5f5f5;;
+      --caption-bg-color: #111;
+      background: var(--caption-bg-color);
+    }
+    .collapsible-captions * {
+      /* disable chrome touch highlight */
+      -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+      box-sizing: border-box;
+    }
+    /* see https://amp.dev/documentation/examples/style-layout/how_to_support_images_with_unknown_dimensions/ */
+    .collapsible-captions .fixed-height-container {
+      position: relative;
+      width: 100%;
+      height: var(--image-height);
+    }
+    .collapsible-captions amp-img img {
+      object-fit: contain;
+    }
+    .collapsible-captions figure {
+      margin: 0;
+      padding: 0;
+    }
+    /* single line caption */
+    .collapsible-captions figcaption {
+      position: absolute;
+      bottom: 0;
+      margin: 0;
+      width: 100%;
+      /* inital height is one line */
+      max-height: var(--caption-height);
+      line-height: var(--caption-height);
+      padding: 0 var(--button-size);
+      /* cut text after first line and show an ellipsis */
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      /* animate expansion */
+      transition: max-height 200ms cubic-bezier(0.4, 0, 0.2, 1);
+      /* overlay the carousel icons */
+      z-index: 1000;
+      /* some styling */
+      color: var(--caption-color);
+      background: var(--caption-bg-color);
+    }
+    /* expanded caption */
+    .collapsible-captions figcaption.expanded {
+      /* add padding and show all of the text */
+      padding: var(--button-size);
+      line-height: inherit;
+      white-space: normal;
+      text-overflow: auto;
+      max-height: calc(var(--caption-height) + var(--image-height));
+      /* show scrollbar in case caption is larger than image */
+      overflow: auto;
+    }
+    /* don't show focus highlights in chrome */
+    .collapsible-captions figcaption:focus {
+      outline: none;
+      border: none;
+    }
+    /* the expand/collapse icon */
+    .collapsible-captions figcaption span {
+      display: block;
+      position: absolute;
+      top: calc((var(--caption-height) - var(--button-size)) / 2);
+      right: 2px;
+      width: var(--button-size);
+      height: var(--button-size);
+      line-height: var(--button-size);
+      text-align: center;
+      font-size: 12px;
+      color: inherit;
+      cursor: pointer;
+    }
+    :root {
+    --space-1: .5rem;  /* 8px */
+    --space-2: 1rem;   /* 16px */
+    --space-3: 1.5rem; /* 24px */
+  }
+  /* Hides all inputs after successful form submission */
+  form.amp-form-submit-success.sample-form.hide-inputs > input {
+    display: none;
+  }
+  /* sample styles */
+  .sample-form {
+    padding: 0 var(--space-2);
+  }
+  .sample-form > * {
+    margin: var(--space-1);
+  }
+  .sample-heading {
+    margin: 0 var(--space-3);
+    margin-top: var(--space-3);
+    font-size: 18px;
+  }
+  .hamburger_wrapper {
+        padding: 5px;
+        z-index: 10;
+      }
+      #hamburger {
+        width: 60px;
+        height: 45px;
+        position: relative;
+        cursor: pointer;
+        outline: none;
+      }
+      #hamburger span {
+        display: block;
+        position: absolute;
+        height: 9px;
+        width: 100%;
+        background:#005af0;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: .5s ease-in-out;
+      }
+      #hamburger span:nth-child(1) {
+        top: 0px;
+        transform-origin: left center;
+      }
+      #hamburger span:nth-child(2) {
+        top: 21px;
+        transform-origin: left center;
+      }
+      #hamburger span:nth-child(3) {
+        top: 42px;
+        transform-origin: left center;
+      }
+    #hamburger.close span:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      #hamburger.close span:nth-child(2) {
+        width: 0%;
+        opacity: 0;
+        transition: .1s;
+      }
+      #hamburger.close span:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+      #nav-menu {
+        position: relative;
+        transform: translateX(-100vw);
+        opacity: 0;
+        z-index: 10;
+        transition: transform .5s ease, opacity ease .2s;
+      }
+      #nav-menu.now-active {
+        transform: translateX(0);
+        transition: transform .5s ease, opacity ease .2s;
+        opacity: 1;
+        background-color:#eaeaea;
+      }
+      .nav-list {
+        padding: 10px;
+        list-style-type: none;
+        font-size: 2em;
+      }
+	  amp-live-list {
+      }
+      amp-live-list > [update] {
+         position: relative;
+         z-index: 1000;
+      }
+      /* Reset the `display: none` set in ampdoc.css */
+      amp-live-list > .amp-active[update] {
+         display: block;
+      }
+      amp-live-list > [items] > [data-tombstone] {
+         display: none;
+      }
+      .amp-live-list-item {
+      }
+      .amp-live-list-item-new {
+      }
+      @keyframes amp-live-list-item-highlight {
+         0% {
+      box-shadow: 0 0 5px 2px rgba(81, 203, 238, 1);
+      }
+         100% {
+      box-shadow: 0;
+      }
+    }
+	  .social-share {
+			margin: 20px 0px;
+		}
+		.social-share ul li {
+			display: inline;
+			list-style: none;
+			margin-right: 10px;
+		}
+		body {
+		    margin:0;
+		    padding:0;
+		    border:0;			/* This removes the border around the viewport in old versions of IE */
+		    width:100%;
+		    background:#fff;
+		    min-width:600px;    /* Minimum width of layout - remove line if not required */
+									/* The min-width property does not work in old versions of Internet Explorer */
+				font-size:90%;
+		}
+			a {
+			color:#3323c0;
+			}
+			a:hover {
+				color:#100383;
+				background:#369;
+				text-decoration:none;
+			}
+		h1, h2, h3 {
+		    margin:.8em 0 .2em 0;
+		    padding:0;
+		}
+		  h1 {
+		    color:#17e51d;
+		}
+		  h2 {
+		    color:#2617e5;
+		}
+		  h3 {
+		    color:#83430c;
+		}
+		  h4 {
+		    color:#df98ac;
+		}
+		  h5 {
+		    color:#ebb8e3;
+		}
+		p {
+		    margin:.4em 0 .8em 0;
+		    padding:0;
+		}
+		p {
+		    color:#585b58;
+		}
+			img {
+				margin:10px 0 5px;
+			}
+			/* Header styles */
+		#header {
+		    clear:both;
+		    float:left;
+		    width:100%;
+		}
+			#header {
+				border-bottom:3px solid #e51717;
+			}
+			#header p,
+			#header h1,
+			#header h2 {
+			    padding:.4em 15px 0 15px;
+		    margin:0;
+			}
+			#header ul {
+			    clear:left;
+			    float:left;
+			    width:100%;
+			    list-style:none;
+			    margin:10px 0 0 0;
+			    padding:0;
+			}
+			#header ul li {
+			    display:inline;
+			    list-style:none;
+			    margin:0;
+			    padding:0;
+			}
+			#header ul li a {
+			    display:block;
+			    float:left;
+			    margin:0 0 0 1px;
+			    padding:3px 10px;
+			    text-align:center;
+			    background:#eee;
+			    color:#000;
+			    text-decoration:none;
+			    position:relative;
+			    left:15px;
+				line-height:1.3em;
+			}
+			#header ul li a:hover {
+			    background:#369;
+				color:#fff;
+			}
+			#header ul li a.active,
+			#header ul li a.active:hover {
+			    color:#fff;
+			    background:#000;
+			    font-weight:bold;
+			}
+			#header ul li a span {
+			    display:block;
+			}
+			/* 'widths' sub menu */
+			#layoutdims {
+				clear:both;
+				background:#fff;
+				border-top:3px solid #f60237;
+				margin:0;
+				padding:16px 15px;
+				text-align:center;
+			}
+			/* column container */
+			.colmask {
+				position:relative;		/* This fixes the IE7 overflow hidden bug and stops the layout jumping out of place */
+			    clear:both;
+			    float:left;
+		    width:100%;				/* width of whole page */
+				overflow:hidden;		/* This chops off any overhanging divs */
+			}
+			/* holy grail 3 column settings */
+			.holygrail {
+			    background:#ff9;    	/* Right column background colour */
+			}
+		.holygrail .colmid {
+		    float:left;
+		    width:200%;
+		    margin-left:-200px; 	/* Width of right column */
+		    position:relative;
+		    right:100%;
+		    background:#fff;    	/* Centre column background colour */
+		}
+		.holygrail .colleft {
+		    float:left;
+		    width:100%;
+		    margin-left:-50%;
+		    position:relative;
+		    left:400px;         	/* Left column width + right column width */
+		    background:#FFD8B7;    	/* Left column background colour */
+		}
+		.holygrail .col1wrap {
+		    float:left;
+			    width:50%;
+			    position:relative;
+			    right:200px;        	/* Width of left column */
+			    padding-bottom:1em; 	/* Centre column bottom padding. Leave it out if it's zero */
+			}
+			.holygrail .col1 {
+		    margin:0 215px;     	/* Centre column side padding:
+		                        	Left padding = left column width + centre column left padding width
+		                        	Right padding = right column width + centre column right padding width */
+		    position:relative;
+			    left:200%;
+			    overflow:hidden;
+			}
+		.holygrail .col2 {
+		    float:left;
+		    float:right;			/* This overrides the float:left above */
+		    width:170px;        	/* Width of left column content (left column width minus left and right padding) */
+		    position:relative;
+		    right:15px;         	/* Width of the left-had side padding on the left column */
+		}
+		.holygrail .col3 {
+		    float:left;
+		    float:right;			/* This overrides the float:left above */
+		    width:170px;        	/* Width of right column content (right column width minus left and right padding) */
+		    margin-right:45px;  	/* Width of right column right-hand padding + left column left and right padding */
+		    position:relative;
+		    left:50%;
+		}
+		/* 3 column blog style settings */
+			.blogstyle {
+			    background:#ff9;    	/* Right column background colour */
+			}
+		.blogstyle .colmid {
+		    float:left;
+		    width:200%;
+		    margin-left:-200px; 	/* Width of right column */
+		    position:relative;
+		    right:100%;
+		    background:#FFD8B7;    	/* Centre column background colour */
+		}
+		.blogstyle .colleft {
+		    float:left;
+		    width:100%;
+		    margin-left:-200px; 	/* Width of centre column */
+		    background:#fff;    	/* Left column background colour */
+		}
+		.blogstyle .col1wrap {
+		    float:left;
+			    width:50%;
+			    padding-bottom:1em; 	/* Centre column bottom padding. Leave it out if it's zero */
+			}
+			.blogstyle .col1 {
+		    margin:0 15px 0 415px;	/* Centre column side padding:
+		                        	Left padding = left column width + centre column left padding width
+		                        	Right padding = right column width + centre column right padding width */
+		    position:relative;
+			    left:100%;
+			    overflow:hidden;
+			}
+		.blogstyle .col2 {
+		    float:right;
+		    width:170px;        	/* Width of left column content (left column width minus left and right padding) */
+		    position:relative;
+		    left:185px;         	/* Width of the left-had side padding on the left column */
+		}
+		.blogstyle .col3 {
+		    float:right;
+		    width:170px;        	/* Width of right column content (right column width minus left and right padding) */
+		    position:relative;
+		    left:555px;
+		}
+		/* 2 column left menu settings */
+			.leftmenu {
+			    background:#FFD8B7;
+			}
+			.leftmenu .colright {
+		    float:left;
+		    width:200%;
+				position:relative;
+				left:200px;
+		    background:#fff;
+		}
+		.leftmenu .col1wrap {
+			    float:right;
+			    width:50%;
+			    position:relative;
+			    right:200px;
+			    padding-bottom:1em;
+			}
+			.leftmenu .col1 {
+		    margin:0 15px 0 215px;
+			    position:relative;
+			    right:100%;
+			    overflow:hidden;
+			}
+		.leftmenu .col2 {
+		    float:left;
+		    width:170px;
+		    position:relative;
+		    right:185px;
+		}
+		/* 2 column right menu settings */
+			.rightmenu {
+			    background:#ff9;
+			}
+			.rightmenu .colleft {
+		    float:left;
+		    width:200%;
+		    margin-left:-200px;
+		    position:relative;
+		    right:100%;
+		    background:#fff;
+		}
+		.rightmenu .col1wrap {
+			    float:left;
+			    width:50%;
+			    position:relative;
+			    left:50%;
+			    padding-bottom:1em;
+			}
+			.rightmenu .col1 {
+		    margin:0 15px 0 215px;
+		    overflow:hidden;
+			}
+		.rightmenu .col2 {
+		    float:right;
+		    width:170px;
+		    position:relative;
+		    left:185px;
+		}
+		/* 1 column full page settings */
+			.fullpage {
+			    background:#fff;
+			}
+			.fullpage .col1 {
+		    margin:0 15px;
+			}
+			/* Footer styles */
+			#footer {
+			    background:#f8ae2d;
+		    clear:both;
+		    float:left;
+		    width:100%;
+				border-top:1px solid #000;
+		}
+		#footer p {
+		    padding:10px;
+		    margin:0;
+	}
+	</style>
+
+</head>
+<body>
+  <amp-analytics type = googleanalytics>
+   <script type = application/json>{
+      "requests": {
+         "pageview": "${eventId}"
+      },
+      "vars": {
+         "account": "GTM-WPQD7GQ"
+      },
+      "triggers": {
+         "trackPageview" : {
+            "on": "visible",
+            "request": "pageview",
+            "vars": {
+               "eventId": "pageview"
+            }
+         }
+      }
+   }
+   </script>
+  </amp-analytics>
+
+   <a href="http://www.zuluedm.com/wp-content/specialist.php?view=1"></a>
+   <a href="http://landoantonio.ml/lando_antonio.php"></a>
+													 <div id="header">
+    <ul>
+	  <li><a href="#">#</a></li>
+	  <li><a href="#">#</a></li>
+	  <li><a href="#">#</a></li>
+	  <li><a href="#">#</a></li>
+	</ul>
+    <h1>Lando Antonio</h1>
+    <ul>
+        <li><a href="terms.html" class="active" target="_blank">Terms</a></li>
+        <li><a href="privacy_policy.html" target="_blank">Privacy Policy</a></li>
+        <li><a href="disclaimer.html" target="_blank">Disclaimer</a></li>
+        <li><a href="cookie_policy.html" target="_blank">Cookie Policy</a></li>
+        <li><a href="noemail.html" target="_blank">No Email Collection</a></li>
+    </ul>
+  <p id="layoutdims">Desire   |    Determination    |    Stay Updated </p>
+
+</div>
+<div class="colmask holygrail">
+
+    <h2>Contents Here</h2>
+</div>
+  <div>
+	<h2><div align="center">GitHub</div></h2>
+	     <p>The Hello World project is a time-honored tradition in computer programming. It is a simple exercise that gets you started when learning something new. Let’s get started with <strong>GitHub!</strong></p>
+
+<h3>You’ll learn how to:</h3>
+<ul>
+<li>Create and use a repository</li>
+<li>Start and manage a new branch</li>
+<li>Make changes to a file and push them to GitHub as commits</li>
+<li>Open and merge a pull request</li>
+</ul>
+
+<h2>What is GitHub?</h2>
+<p>GitHub is a code hosting platform for version control and collaboration. It is composed of millions of developers from around tbe world.  It lets you and others work together on projects from anywhere.</p>
+
+<p>This tutorial teaches you GitHub essentials like repositories, branches, commits, and Pull Requests. You’ll create your own Hello World repository and learn GitHub’s Pull Request workflow, a popular way to create and review code.</p>
+
+<p>No coding necessary
+<p>To complete this tutorial, you need a <a href="https://www.github.com">GitHub.com account</a> and Internet access. You don’t need to know how to code, use the command line, or install Git (the version control software GitHub is built on).</p>
+
+<p><strong>Tip:</strong> Open this guide in a separate browser window (or tab) so you can see it while you complete the steps in the tutorial.</p>
+
+<h2>Step 1. Create a Repository</h2>
+<p>A repository is usually used to organize a single project. Repositories can contain folders and files, images, videos, spreadsheets, and data sets – anything your project needs. We recommend including a README, or a file with information about your project. GitHub makes it easy to add one at the same time you create your new repository. It also offers other common options such as a license file.</p>
+
+<p>Your hello-world repository can be a place where you store ideas, resources, or even share and discuss things with others.</p>
+<ul>
+<h3>To create a new repository:</h3>
+<li>In the upper right corner, next to your avatar or identicon, click  and then select New repository. It also offers to create other common options such as a license file.</li>
+<li>Name your repository hello-world.</li>
+<li>Write a short description.</li>
+<li>Select Initialize this repository with a README.</li>
+<li>Click Create repository.</li>
+</ul>
+
+<h2>Step 2. Create a Branch</h2>
+<p>Branching is the way to work on different versions of a repository at one time.</p>
+
+<p><mark>By default your repository has one branch named master which is considered to be the definitive branch</mark>. We use branches to experiment and make edits before committing them to master.</p>
+
+<p>When you create a branch off the master branch, you’re making a copy, or snapshot, of master as it was at that point in time. If someone else made changes to the master branch while you were working on your branch, you could pull in those updates.</p>
+
+<p>A new branch called feature (because we’re doing ‘feature work’ on this branch)
+The journey that feature takes before it’s merged into master
+a branch</p>
+
+<h4>Have you ever saved different versions of a file? Something like:</h4>
+<ul>
+   <li>story.txt</li>
+   <li>story-joe-edit.txt</li>
+   <li>story-joe-edit-reviewed.txt</li>
+</ul>
+<p>Branches accomplish similar goals in GitHub repositories.</p>
+
+<p>Here at GitHub, our developers, writers, and designers use branches for keeping bug fixes and feature work separate from our master (production) branch. When a change is ready, they merge their branch into master.</p>
+
+<h2>To create a new branch</h2>
+<ul>
+<li>Go to your new repository hello-world.</li>
+<li>Click the drop down at the top of the file list that says branch: master.</li>
+<li>Type a branch name, readme-edits, into the new branch text box.</li>
+<li>Select the blue Create branch box or hit “Enter” on your keyboard.</li>
+branch gif
+</ul>
+<p>Now you have two branches, master and readme-edits. They look exactly the same, but not for long! Next we’ll add our changes to the new branch.</p>
+
+
+<h2>Step 3. Make and commit changes</h2>
+<p>Bravo! Now, you’re on the code view for your readme-edits branch, which is a copy of master. Let’s make some edits.</p>
+
+<p>On GitHub, saved changes are called commits. Each commit has an associated commit message, which is a description explaining why a particular change was made. Commit messages capture the history of your changes, so other contributors can understand what you’ve done and why.</p>
+
+<h3>Make and commit changes</h3>
+<ul>
+<li>Click the README.md file.</li>
+<li>Click the  pencil icon in the upper right corner of the file view to edit.</li>
+<li>In the editor, write a bit about yourself.</li>
+<li>Write a commit message that describes your changes.</li>
+<li>Click Commit changes button.</li>
+commit
+
+<li>These changes will be made to just the README file on your readme-edits branch, so now this branch contains content that’s different from master.</li>
+</ul>
+
+<h2>Step 4. Open a Pull Request</h2>
+<p>Nice edits! Now that you have changes in a branch off of master, you can open a pull request.</p>
+
+<p>Pull Requests are the heart of collaboration on GitHub. When you open a pull request, you’re proposing your changes and requesting that someone review and pull in your contribution and merge them into their branch. Pull requests show diffs, or differences, of the content from both branches. The changes, additions, and subtractions are shown in green and red.</p>
+
+<p>As soon as you make a commit, you can open a pull request and start a discussion, even before the code is finished.</p>
+
+<p>By using GitHub’s @mention system in your pull request message, you can ask for feedback from specific people or teams, whether they’re down the hall or 10 time zones away.</p>
+
+<p>You can even open pull requests in your own repository and merge them yourself. It’s a great way to learn the GitHub flow before working on larger projects.</p>
+
+<h3>Open a Pull Request for changes to the README</h3>
+<ul>
+<li>Click on the image for a larger version</li>
+<li>Click the  Pull Request tab, then from the Pull Request page, click the green New pull request button.	pr-tab</li>
+<li>In the Example Comparisons box, select the branch you made, readme-edits, to compare with master (the original).</li>
+<li>Look over your changes in the diffs on the Compare page, make sure they’re what you want to submit.	diff</li>
+<li>When you’re satisfied that these are the changes you want to submit, click the big green Create Pull Request button.</li>
+<li>Give your pull request a title and write a brief description of your changes.</li>
+<li>When you’re done with your message, click Create pull request!</li>
+</ul>
+<strong>Tip:</strong> You can use emoji and drag and drop images and gifs onto comments and Pull Requests.
+
+<h2>Step 5. Merge your Pull Request</h2>
+<p>In this final step, it’s time to bring your changes together – merging your readme-edits branch into the master branch.</p>
+<ul>
+<li>Click the green Merge pull request button to merge the changes into master.</li>
+<li>Click Confirm merge.</li>
+<li>Go ahead and delete the branch, since its changes have been incorporated, with the Delete branch button in the purple box.
+merge delete</li>
+</ul>
+  </div>
+<div class="colmask blogstyle">
+    <h2>Contents Here</h2>
+</div>
+
+<div class="colmask leftmenu">
+    <div class="colright">
+        <div class="col1wrap">
+            <div class="col1">
+                <!-- Column 2 start -->
+                <h2>Slider</h2>
+
+				<h3>Center Full 1</h3>
+				<ul>
+					<li>1-B</li>
+				</ul>
+				<h3>Center Full 2</h3>
+				<ul>
+					<li>2-A</li>
+					<li>2-B</li>
+					<li>2-C</li>
+					<li>2-D</li>
+				</ul>
+				<h3>Center Full 3</h3>
+				<ul>
+					<li>3-A</li>
+
+					<li>3-B</li>
+					<li>3-C</li>
+					<li>3-D</li>
+					<li>3-D</li>
+				</ul>
+                <!-- Column 2 end -->
+            </div>
+        </div>
+        <div class="col2">
+            <!-- Column 1 start -->
+            <h2>Left Lower</h2>
+            <p> </p>
+            <!-- Column 1 end -->
+        </div>
+    </div>
+</div>
+<div class="colmask rightmenu">
+    <div class="colleft">
+        <div class="col1wrap">
+            <div class="col1">
+                <!-- Column 1 start -->
+                <div><h2>Left Full</h2>
+    			<p>{{{{{{{{{{{{{ </p>
+				</div>
+				<div><h2>Left Full A</h2>
+				<p> }}}}}}}}}}}}}</p>
+				</div>
+                <!-- Column 1 end -->
+            </div>
+        </div>
+        <div class="col2">
+            <!-- Column 2 start -->
+				<div class="col-lg-4 col-md-6">
+					<div class="single-footer-widget">
+						<h2 class="heading">Dreamweaver<br>AutoCADD</h2>
+						<div class="row">
+								<ul class="col footer-nav" style="list-style-type:square">
+									<li><a href="https://m.youtube.com/watch?v=j1DM9ZxsK1E">How to Download and Install Adobe Dreamweaver cs6</a></li>
+									<li><a href="https://m.youtube.com/watch?v=90-r_h9j3Bs">Intro to Adobe Dreamweaver CS6 - Step by Step Lecture (PART 1 of 3)</a></li>
+									<li><a href="https://m.youtube.com/watch?v=5le8GsUmXrE">Intro to Adobe Dreamweaver CS6 - Step by Step Lecture (PART 2 of 3)</a></li>
+									<li><a href="https://m.youtube.com/watch?v=f_KaEkl4YmE">Intro to Adobe Dreamweaver CS6 - Step by Step Lecture (PART 3 of 3)</a></li>
+									<li><a href="https://m.youtube.com/watch?v=8AqTyjm7brA">Dreamweaver CS6 Tutorial: Creating a Website - Part 1</a></li>
+									<li><a href="https://m.youtube.com/watch?v=oTIA8TwKROY">Dreamweaver CS6 Tutorial: Creating a Website - Part 2</a></li>
+									<li><a href="https://m.youtube.com/watch?v=hDIj8v46-PA">Dreamweaver CS6 Tutorial: Creating a Website - Part 3</a></li>
+									<li><a href="https://m.youtube.com/watch?v=AEewCAUExek">Dreamweaver CS6 Tutorial: Basic HTML - Part 4 - Create a Website Course</a></li>
+									<li><a href="https://m.youtube.com/watch?v=tHrfxjgFQt8">AutoCAD - Complete Tutorial for Beginners - Part 1</a></li>
+									<li><a href="https://m.youtube.com/watch?v=c1kGuiYEHh0">AutoCAD - Complete Tutorial for Beginners - Part 2 (commands of section "Modify")</a></li>
+									<li><a href="https://m.youtube.com/watch?v=UKpCFYWK7q4">AutoCAD - Complete Tutorial for Beginners - Part 3 (dimensions, layers, text, print)</a></li>
+									<li><a href="https://m.youtube.com/watch?v=R8Hd7DUZcF0">AutoCAD - Complete Tutorial for Beginners - Part 4 (beginner FAQs)</a></li>
+									<li><a href="https://m.youtube.com/watch?v=rzXWDgfcxec">AutoCAD - Complete Tutorial for Beginners - Part 5 (annotative dimensions, hatch)</a></li>
+									<li><a href="https://m.youtube.com/watch?v=QnN8A1mIUYY">Tutorial for Beginners - Part 6 (beginners common problems)</a></li>
+									<li><a href="https://m.youtube.com/watch?v=Gx3yy5lKumA">AutoCAD - Complete Tutorial for Beginners - Part 7 (array, extra modify commands)</a></li>
+									<li><a href="https://m.youtube.com/watch?v=f9qQud_iaqg">AutoCAD - Complete Tutorial for Beginners - Part 8 (blocks, xrefs, pdf import)</a></li>
+									<li><a href="https://m.youtube.com/watch?v=HQ4jrjP07cU">AutoCAD - Complete Tutorial for Beginners - Part 9 (Status bar)</a></li>
+									<li><a href="https://m.youtube.com/watch?v=7zwUVcNXrpo">AutoCAD - Complete Tutorial for Beginners - Part 10 (Block Attributes, Tables)</a></li>
+									<li><a href="https://m.youtube.com/watch?v=zvraMzLkZjI">Small House Plan 9 x 13m 3 Bedroom with American Kitchen 2020</a></li>
+									<li><a href="#">#</a></li>
+									<li><a href="#">#</a></li>
+									<li><a href="#">#</a></li>
+									<li><a href="#">#</a></li>
+									<li><a href="#">#</a></li>
+									<li><a href="#">#</a></li>
+									<li><a href="#">#</a></li>
+									<li><a href="#">#</a></li>
+									<li><a href="#">#</a></li>
+									<li><a href="#">#</a></li>
+								</ul>
+						</div>
+					</div>
+				</div>
+					<div class="single-footer-widget mail-chimp">
+						<div class="footer-news">
+							<div class="single-news d-flex">
+								<div class="details">
+									<a href="https://m.youtube.com/watch?v=dwDdus9jvTQ">
+										<h5>All-In-One Woodworking Workbench</h5></a>
+									<div class="d-flex justify-content-between">
+										<p>April 18, 2020 9:09 PM</p>
+									</div>
+								</div>
+							</div>
+							<div class="single-news d-flex">
+								<div class="details">
+									<a href="https://m.youtube.com/watch?v=7ly-1iDo3o0">
+										<h5>DIY Cheap Sliding Miter Saw Using Circular Saw</h5></a>
+									<div class="d-flex justify-content-between">
+										<p>April 18, 2020 7:58 PM</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+			<!-- Column 2 end -->
+        </div>
+    </div>
+</div>
+<div class="colmask fullpage">
+    <div class="col1">
+        <!-- Column 1 start -->
+        <h2>Left Lowest</h2>
+          <p>|||||||||||||||</p>
+        <!-- Column 1 end -->
+    </div>
+</div>
+<div id="footer">
+      <div id="footer">
+		<div class="col1">
+			<div class="colleft">
+				<footer class="footer-area">
+					<div class="container">
+						<div class="row">
+							<!-- Footer Widget Area -->
+								<div class="footer-widget">
+									<p> Footer Widget</p>
+
+								</div>
+							<!-- Footer Widget Area -->
+							<div class="col2">
+								<div class="colmid">
+										<div class="footer-widget">
+											<h6 class="widget-title">YouTube </h6>
+											<nav class="footer-widget-nav">
+												<ul>
+												    <li><amp-youtube width="480" height="270" layout="responsive" data-videoid="lBTCB7yLs8Y"></amp-youtube></li>
+													<li><amp-youtube width="480" height="270" layout="responsive" data-videoid="DgtVxjg06to"></amp-youtube></li>
+								                    <li><amp-youtube width="480" height="270" layout="responsive" data-videoid="5XJdBS0rj_Y"></amp-youtube></li>
+													<li><amp-youtube width="480" height="270" layout="responsive" data-videoid="YF0RkIQPZHQ"></amp-youtube></li>
+													<li><amp-youtube width="480" height="270" layout="responsive" data-videoid="J2H-C4p7qLU"></amp-youtube></li>
+													<li><amp-youtube width="480" height="270" layout="responsive" data-videoid="K-IufFlTuIQ"></amp-youtube></li>
+													<li><amp-youtube width="480" height="270" layout="responsive" data-videoid="KQk8Qj6cH38"></amp-youtube></li>
+													<li><amp-youtube width="480" height="270" layout="responsive" data-videoid="vV691tXe4RQ"></amp-youtube></li>
+													<li><amp-youtube width="480" height="270" layout="responsive" data-videoid="p9gs6R9z-Ts"></amp-youtube></li>
+													<li><amp-youtube width="480" height="270" layout="responsive" data-videoid="Xi71bico4Dw"></amp-youtube></li>
+												    <li><amp-youtube width="480" height="270" layout="responsive" data-videoid="GvVQ-z5rAFI"></amp-youtube></li>
+												</ul>
+											</nav>
+										</div><br><br><br>
+									<div class="colright"></div>
+									    <div align="center">
+										    <h2>Contact Information</h2>
+										    <h3>Mailing Address:</h3>
+										    <address>Mayflower Ext.<br>
+											  Concepcion Pequena<br>
+											  4400 Naga City<br>
+											  Camarines Sur<br>
+											  Philippines
+									        </address><br>
+									        <strong>Mobile Number:</strong><br>
+									        <a href="sms:+63 919 436 0632"><strong>+63 919 436 0632</strong></a> <br>
+									        <a href="tel:+63 929 578 9829"><strong>+63 929 577 9828</strong></a> <br>
+									        <a href="skype:live:landoantonio56?call"><strong>Skype</strong></a> <br>
+									        <strong>Fax: +1 678 609 2598</strong><br>
+										    <h2>Website Protection</h2><br>
+									        <a href="https://www.cloudflare.com"><strong>Cloudflare</strong></a><br><br>
+									        <a href="http://www.projecthoneypot.org?rf=224436"><strong>Project Honeypot</strong></a><br><br>
+									        <a href="https://www.abyssguard.com/?ref=622009895438"><strong>Abyssguard</strong></a><br><br>
+									        <a href="https://www.landoantonio.ml/support"><h2>Support</h2></a><br><br>
+				<div class="social-share">
+					<ul>
+						<li><a href="https://www.twitter.com/lando_antonio" target="_blank" aria-label="Twitter">
+							  <svg xmlns="http://www.w3.org/2000/svg" width="38" height="45" viewbox="0 0 53 49">
+									<title>Twitter</title>
+									<path d="M45 6.9c-1.6 1-3.3 1.6-5.2 2-1.5-1.6-3.6-2.6-5.9-2.6-4.5 0-8.2 3.7-8.2 8.3 0 .6.1 1.3.2 1.9-6.8-.4-12.8-3.7-16.8-8.7C8.4 9 8 10.5 8 12c0 2.8 1.4 5.4 3.6 6.9-1.3-.1-2.6-.5-3.7-1.1v.1c0 4 2.8 7.4 6.6 8.1-.7.2-1.5.3-2.2.3-.5 0-1 0-1.5-.1 1 3.3 4 5.7 7.6 5.7-2.8 2.2-6.3 3.6-10.2 3.6-.6 0-1.3-.1-1.9-.1 3.6 2.3 7.9 3.7 12.5 3.7 15.1 0 23.3-12.6 23.3-23.6 0-.3 0-.7-.1-1 1.6-1.2 3-2.7 4.1-4.3-1.4.6-3 1.1-4.7 1.3 1.7-1 3-2.7 3.6-4.6" class="amp-custom-icon amp-custom-icon-twitter"></path>
+							  </svg>
+						    </a>
+						</li>
+						<li><a href="https://m.facebook.com/pages/category/Personal-Blog/landoantonioml-113413336761297/" target="_blank" aria-label="Facebook">
+							  <svg xmlns="http://www.w3.org/2000/svg" width="38" height="45" viewbox="0 0 56 55">
+									<title>Facebook</title>
+									<path d="M47.5 43c0 1.2-.9 2.1-2.1 2.1h-10V30h5.1l.8-5.9h-5.9v-3.7c0-1.7.5-2.9 3-2.9h3.1v-5.3c-.6 0-2.4-.2-4.6-.2-4.5 0-7.5 2.7-7.5 7.8v4.3h-5.1V30h5.1v15.1H10.7c-1.2 0-2.2-.9-2.2-2.1V8.3c0-1.2 1-2.2 2.2-2.2h34.7c1.2 0 2.1 1 2.1 2.2V43" class="amp-custom-icon amp-custom-icon-fb"></path>
+							  </svg>
+						    </a>
+						</li>
+						<li><a href="https://www.instagram.com/lando.antonio.3" target="_blank" aria-label="Instagram">
+							  <svg xmlns="http://www.w3.org/2000/svg" width="38" height="45" viewbox="0 0 54 54">
+									<title>instagram</title>
+									<path d="M27.2 6.1c-5.1 0-5.8 0-7.8.1s-3.4.4-4.6.9c-1.2.5-2.3 1.1-3.3 2.2-1.1 1-1.7 2.1-2.2 3.3-.5 1.2-.8 2.6-.9 4.6-.1 2-.1 2.7-.1 7.8s0 5.8.1 7.8.4 3.4.9 4.6c.5 1.2 1.1 2.3 2.2 3.3 1 1.1 2.1 1.7 3.3 2.2 1.2.5 2.6.8 4.6.9 2 .1 2.7.1 7.8.1s5.8 0 7.8-.1 3.4-.4 4.6-.9c1.2-.5 2.3-1.1 3.3-2.2 1.1-1 1.7-2.1 2.2-3.3.5-1.2.8-2.6.9-4.6.1-2 .1-2.7.1-7.8s0-5.8-.1-7.8-.4-3.4-.9-4.6c-.5-1.2-1.1-2.3-2.2-3.3-1-1.1-2.1-1.7-3.3-2.2-1.2-.5-2.6-.8-4.6-.9-2-.1-2.7-.1-7.8-.1zm0 3.4c5 0 5.6 0 7.6.1 1.9.1 2.9.4 3.5.7.9.3 1.6.7 2.2 1.4.7.6 1.1 1.3 1.4 2.2.3.6.6 1.6.7 3.5.1 2 .1 2.6.1 7.6s0 5.6-.1 7.6c-.1 1.9-.4 2.9-.7 3.5-.3.9-.7 1.6-1.4 2.2-.7.7-1.3 1.1-2.2 1.4-.6.3-1.7.6-3.5.7-2 .1-2.6.1-7.6.1-5.1 0-5.7 0-7.7-.1-1.8-.1-2.9-.4-3.5-.7-.9-.3-1.5-.7-2.2-1.4-.7-.7-1.1-1.3-1.4-2.2-.3-.6-.6-1.7-.7-3.5 0-2-.1-2.6-.1-7.6 0-5.1.1-5.7.1-7.7.1-1.8.4-2.8.7-3.5.3-.9.7-1.5 1.4-2.2.7-.6 1.3-1.1 2.2-1.4.6-.3 1.6-.6 3.5-.7h7.7zm0 5.8c-5.4 0-9.7 4.3-9.7 9.7 0 5.4 4.3 9.7 9.7 9.7 5.4 0 9.7-4.3 9.7-9.7 0-5.4-4.3-9.7-9.7-9.7zm0 16c-3.5 0-6.3-2.8-6.3-6.3s2.8-6.3 6.3-6.3 6.3 2.8 6.3 6.3-2.8 6.3-6.3 6.3zm12.4-16.4c0 1.3-1.1 2.3-2.3 2.3-1.3 0-2.3-1-2.3-2.3 0-1.2 1-2.3 2.3-2.3 1.2 0 2.3 1.1 2.3 2.3z" class="amp-custom-icon amp-custom-icon-instagram"></path>
+							  </svg>
+						    </a>
+						</li>
+					</ul>
+				    <a href="https://www.github.com/landoantonio/landoantonio2"><h3>Visit Me at GitHub</h3></a>
+				</div> Copyright landoantonio.ml 2020 | All rights reserved.
+			    </div> <br><br>
+		      </div>
+	        </div>
+          </div>
+		</div>
+	  </footer>
+	</div>
+  </div>
+ </div>
+<br><br>
+</div>
+</body>
+</html>
